@@ -18,14 +18,14 @@ class Habit extends Component {
 
     render() {
       //console.log(this.props.habit); // 외부로부터 받은 데이터는 props에 저장됨.
-      const { name, count} = this.props.habit;
+      const { name, count } = this.props.habit;
       // const Newname = this.props.habit.name;
       // const Newcount = this.props.habit.count;
         return ( 
           <li className="habit">
             <span className="habit-name">{name}</span>
             <span className="habit-count">{count}</span>
-            <button 
+            <button
               className="habit-button habit-increase" 
               onClick={this.handleIncrement}>
               <i className="fas fa-plus-square"></i>
