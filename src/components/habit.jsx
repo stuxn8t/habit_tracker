@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
 class Habit extends Component {
-    state = {   // state값이 변경되면 리액트가 자동으로 render 함수를 호출함
-        count: 0,
-    };
+
 
     handleIncrement = () => {
-        // state 오브젝트 안에 있는 count를 증가한 뒤 state를 업데이트 해야함.
-        this.setState({ count: this.state.count +1 });
+      this.props.onIncrement(this.props.habit);
     };
 
     handleDecrement = () => {
-        const count = this.state.count - 1;
-        this.setState({ count: count < 0 ? 0 : count });
+      this.props.onDecrement(this.props.habit);
+    };
+
+    handleDelete = () => {
+      this.props.onDelete(this.props.habit);
     };
 
 
@@ -34,7 +34,8 @@ class Habit extends Component {
               onClick={this.handleDecrement}>
               <i className="fas fa-minus-square"></i>
             </button>
-            <button className="habit-button habit-delete">
+            <button className="habit-button habit-delete"
+              onClick={this.handleDelete}>
               <i className="fas fa-trash"></i>
             </button>
           </li>
